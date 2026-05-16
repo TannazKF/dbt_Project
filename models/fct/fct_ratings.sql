@@ -1,6 +1,7 @@
 {{
   config(
     materialized = 'incremental',
+  unique_key = 'rating_key'
     on_schema_change='fail'
   )
 }}
@@ -10,6 +11,11 @@ WITH src_ratings AS (
 )
 
 SELECT
+    {{ dbt_utils.generate_surrogate_key([
+        'user_id',
+        'movie_id',
+        'rating_timestamp'
+    ]) }} AS rating_key,
   user_id,
   movie_id,
   rating,
