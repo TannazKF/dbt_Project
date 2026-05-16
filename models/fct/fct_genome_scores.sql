@@ -7,4 +7,4 @@ SELECT
     tag_id,
     ROUND(relevance, 4) AS relevance_score
 FROM src_scores
-WHERE relevance > 0
+--WHERE relevance > 0
