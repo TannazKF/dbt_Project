@@ -7,7 +7,7 @@ models:
       - name: movie_id
         description: Primary key of the movie
         tests:
-          # - unique
+          - unique
           - not_null
       - name: movie_title
         description: Standardized movie title
@@ -24,7 +24,7 @@ models:
       - name: user_id
         description: Unique user identifier
         tests:
-          # - unique
+          - unique
           - not_null
 
   - name: dim_genome_tags
@@ -34,7 +34,7 @@ models:
         description: Unique tag ID
         tests:
           - not_null
-          # - unique
+          - unique
       - name: tag_name
         description: Cleaned, human-readable tag name
         tests:
