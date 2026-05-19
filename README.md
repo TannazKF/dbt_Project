@@ -109,10 +109,7 @@ Fact models capture measurable analytical events:
 Raw Snowflake tables are declared in `sources.yml` and referenced through dbt source configuration.
 
 ### Seeds
-The project includes a CSV seed to demonstrate lightweight reference-data ingestion:
-```bash
-dbt seed
-```
+The project includes a CSV seed to demonstrate lightweight reference-data ingestion.
 
 ### Incremental Models
 `fct_ratings` is configured as an incremental model and loads only rows with a newer rating timestamp on incremental runs.
