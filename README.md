@@ -110,6 +110,9 @@ Raw Snowflake tables are declared in `sources.yml` and referenced through dbt so
 
 ### Seeds
 The project includes a CSV seed to demonstrate lightweight reference-data ingestion.
+```bash
+dbt seed
+```
 
 ### Incremental Models
 `fct_ratings` is configured as an incremental model and loads only rows with a newer rating timestamp on incremental runs.
@@ -119,6 +122,10 @@ The project includes a CSV seed to demonstrate lightweight reference-data ingest
 - `timestamp` strategy
 - `updated_at`
 - hard-delete invalidation
+Run with:
+```bash
+dbt snapshot
+```
 
 ### Macros
 The `no_nulls_in_columns` macro checks whether any column in a model contains null values.
@@ -127,6 +134,10 @@ The `no_nulls_in_columns` macro checks whether any column in a model contains nu
 The project includes:
 - Schema tests defined in `schema.yml`
 - A custom singular test file in `tests/`
+Run with:
+```bash
+dbt test
+```
 
 ### Analysis SQL
 `analyses/movie_analysis.sql` contains an analytical query that identifies highly rated movies with a minimum rating-count threshold.
