@@ -1,7 +1,7 @@
 WITH ratings_summary AS (
   SELECT
     movie_id,
-    AVG(rating) AS average_rating,
+    ROUND(AVG(rating), 2) AS average_rating,
     COUNT(*) AS total_ratings
   FROM {{ ref('fct_ratings') }}
   GROUP BY movie_id
