@@ -1,7 +1,7 @@
 {{
   config(
     materialized = 'incremental',
-  unique_key = 'rating_key'
+  unique_key = 'rating_key',
     on_schema_change='fail'
   )
 }}
