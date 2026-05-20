@@ -47,6 +47,9 @@ models:
         description: Foreign key to dim_users
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
       - name: movie_id
         description: Foreign key to dim_movies
         tests:
@@ -68,10 +71,16 @@ models:
         description: Foreign key to dim_movies
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
       - name: tag_id
         description: Foreign key to dim_genome_tags
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_genome_tags')
+              field: tag_id
       - name: relevance_score
         description: Relevance score (0 to 1) for tag's association with movie
         tests:
