@@ -1,8 +1,4 @@
-{{
-    config(
-        materialized = 'ephemeral'
-    )
-}}
+{{ config(materialized = 'view') }}
 
 WITH movies AS (
     SELECT * FROM {{ ref("dim_movies") }}
