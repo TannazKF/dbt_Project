@@ -8,7 +8,11 @@ seed_dates AS (
 )
 
 SELECT 
-    f.*,
+    f.rating_key,
+    f.user_id,
+    f.movie_id,
+    f.rating,
+    f.rating_timestamp,
     d.release_date,
     CASE
         WHEN d.release_date IS NULL THEN 'unknown'
