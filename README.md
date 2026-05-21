@@ -118,7 +118,7 @@ dbt seed
 `fct_ratings` is configured as an incremental model and loads only rows with a newer rating timestamp on incremental runs.
 
 ### Snapshots
-`snap_tags` demonstrates snapshot configuration using:
+`snap_tags` is included as a compact demonstration of dbt’s timestamp snapshot pattern for historical tracking, using:
 - `timestamp` strategy
 - `updated_at`
 - hard-delete invalidation
