@@ -5,7 +5,7 @@ WITH ratings_summary AS (
     COUNT(*) AS total_ratings
   FROM {{ ref('fct_ratings') }}
   GROUP BY movie_id
-  HAVING COUNT(*) > 100 -- Only movies with at least 100 ratings
+  HAVING COUNT(*) > 100 -- Keep only movies with sufficient rating volume 
 )
 SELECT
   m.movie_title,
