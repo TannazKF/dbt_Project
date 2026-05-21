@@ -115,3 +115,19 @@ models:
         description: Indicates whether release-date reference data exists for the movie
         tests:
           - not_null      
+
+seeds:
+  - name: seed_movie_release_dates
+    description: Small reference seed mapping movie IDs to release dates for model enrichment
+    columns:
+      - name: movie_id
+        description: Movie identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: release_date
+        description: Reference movie release date
+        tests:
+          - not_null
+          
