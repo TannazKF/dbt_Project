@@ -39,10 +39,16 @@ models:
         description: Cleaned, human-readable tag name
         tests:
           - not_null
-
+  
   - name: fct_ratings
-    description: Fact table of user ratings for movies
+    description: Fact table of rating events at the user-movie-timestamp grain
     columns:
+      - name: rating_key
+        description: Surrogate key uniquely identifying a rating event
+        tests:
+          - unique
+          - not_null
+
       - name: user_id
         description: Foreign key to dim_users
         tests:
@@ -50,6 +56,7 @@ models:
           - relationships:
               to: ref('dim_users')
               field: user_id
+
       - name: movie_id
         description: Foreign key to dim_movies
         tests:
@@ -57,12 +64,16 @@ models:
           - relationships:
               to: ref('dim_movies')
               field: movie_id
+
       - name: rating
         description: User's rating for a movie
         tests:
           - not_null
+
       - name: rating_timestamp
-        description: Unix timestamp when the rating was made
+        description: Timestamp when the rating was made
+        tests:
+          - not_null
 
   - name: fct_genome_scores
     description: Fact table of relevance scores per movie and tag
