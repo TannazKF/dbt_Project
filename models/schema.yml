@@ -39,7 +39,10 @@ models:
         description: Cleaned, human-readable tag name
         tests:
           - not_null
-  
+
+  - name: dim_movies_with_tags
+    description: Enriched movie-tag model combining movie metadata, genome tag labels, and relevance scores
+
   - name: fct_ratings
     description: Fact table of rating events at the user-movie-timestamp grain
     columns:
