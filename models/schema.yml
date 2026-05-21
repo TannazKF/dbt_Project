@@ -96,3 +96,19 @@ models:
         description: Relevance score (0 to 1) for tag's association with movie
         tests:
           - not_null
+          
+  - name: mart_movie_releases
+    description: Rating-level mart enriched with movie release-date reference data from a dbt seed
+    columns:
+      - name: rating_key
+        description: Surrogate key identifying the rating event
+        tests:
+          - not_null
+
+      - name: release_date
+        description: Movie release date from the seed reference file, where available
+
+      - name: release_info_available
+        description: Indicates whether release-date reference data exists for the movie
+        tests:
+          - not_null      
