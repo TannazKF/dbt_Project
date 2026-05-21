@@ -74,7 +74,8 @@ dbt_Project/
 ├── snapshots/
 │   └── snap_tags.sql
 ├── tests/
-│   └── relevence_score_test.sql
+│   ├── no_nulls_fct_genome_scores_test.sql
+│   └── relevance_score_test.sql
 ├── dbt_project.yml
 ├── packages.yml
 └── package-lock.yml
@@ -129,11 +130,12 @@ dbt snapshot
 
 ### Macros
 The `no_nulls_in_columns` macro checks whether any column in a model contains null values.
+A custom macro-driven test is included to demonstrate dynamic null-check generation across all columns in a relation.
 
 ### Testing
 The project includes:
 - Schema tests defined in `schema.yml`
-- A custom singular test file in `tests/`
+- A custom singular test files in `tests/`
 Run with:
 ```bash
 dbt test
